@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camping, the Reference</title>
+	<link rel="stylesheet" href="<%= rel_prefix %>/rdoc.css" type="text/css" media="screen" />
+  <script src="<%= rel_prefix %>/js/jquery.js" type="text/javascript"></script>
+  <script src="<%= rel_prefix %>/js/camping.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="menu">
+    <ul id="links">
+      <li><a href="<%= rel_prefix %>/index.html">front</a> | </li>
+      <li><a href="<%= rel_prefix %>/book.html">book</a> | </li>
+      <li><a href="http://wiki.github.com/camping/camping">wiki</a> | </li>
+      <li><a href="http://github.com/camping/camping">code</a></li>
+    </ul>
+    <p id="version">Camping <%= VERS %></p>
+  </div>
+  
+  <div id="fullpage">
+    <div class="page_shade">
+    	<div class="page ref">
+    	  <p class="header"><%= Time.now %></p>
+    	  <h1>Camping, the Reference</h1>
+    	
+    	<% @modsort.each_with_index do |klass, index| %> 
+    		<h2 id="<%= klass.path[/#(.*)$/, 1] %>">
+    		  <a href="<%= klass.path[/#(.*)$/] %>">
+    		  <%= klass.type.capitalize %>
+    		  <%= klass.full_name %>
+    		  <% if klass.type == 'class' %>
+    		    &lt;
+            <% unless String === klass.superclass %>
+              <%= klass.superclass.full_name %>
+            <% else %>
+              <%= klass.superclass %>
+            <% end %>
+          <% end %>
+          </a>
+    		</h2>
+    		
+    		<div class="mod">
+  			  <%= klass.description.gsub(/<(\/?)h(\d)>/) do
+  			    # replace <h2> with <h3> and so.
+  			    "<#{$1}h#{$2.to_i + 1}>"
+  			  end %>
+  			  
+    		  <h3>Methods</h3>
+    		<% methods_for(klass) do |method, type, visibility| %>
+    		  <h4 class="ruled" id="<%= method.aref %>">
+    		    <a href="#<%= method.aref %>">
+    		    <%= visibility.to_s.capitalize %> <%= type.capitalize %> method:
+    		    <strong><%= method.pretty_name %><%= method.params %></strong>
+    		    <img src="<%= rel_prefix %>/images/permalink.gif">
+    		    </a>
+    		  </h4>
+    		  <div class="method">
+    		    <%= method.description %>
+            <p class="source-link">[ <a href="#">show source</a> ]</p>
+<pre class="sourcecode">
+<%= method.markup_code %>
+</pre>
+          </div>
+    		<% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
