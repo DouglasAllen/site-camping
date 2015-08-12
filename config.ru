@@ -17,3 +17,8 @@ map '/blog' do
   
   run Blog
 end
+
+map '/book' do
+  @root = File.expand_path(File.dirname(__FILE__) + "/public")
+  run lambda {|env| Rack::Directory.new(@root).call(env)} 
+end

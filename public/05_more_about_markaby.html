@@ -1,0 +1,589 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+  
+  <style>
+    body {
+      font-family: "Helvetica Neue", arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: white;
+      padding: 30px;
+      color: #333;
+      border: 1px solid #aaa;
+      max-width: 900px;
+      margin: 20px auto;
+    }
+
+    body > *:first-child {
+      margin-top: 0 !important;
+    }
+
+    body > *:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    a {
+      color: #4183C4;
+      text-decoration: none;
+    }
+
+    a.absent {
+      color: #cc0000;
+    }
+
+    a.anchor {
+      display: block;
+      padding-left: 30px;
+      margin-left: -30px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 20px 0 10px;
+      padding: 0;
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
+      cursor: text;
+      position: relative;
+    }
+
+    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+      text-decoration: none;
+    }
+
+    h1 tt, h1 code {
+      font-size: inherit;
+    }
+
+    h2 tt, h2 code {
+      font-size: inherit;
+    }
+
+    h3 tt, h3 code {
+      font-size: inherit;
+    }
+
+    h4 tt, h4 code {
+      font-size: inherit;
+    }
+
+    h5 tt, h5 code {
+      font-size: inherit;
+    }
+
+    h6 tt, h6 code {
+      font-size: inherit;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: black;
+    }
+
+    h2 {
+      font-size: 24px;
+      border-bottom: 1px solid #cccccc;
+      color: black;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    h4 {
+      font-size: 16px;
+    }
+
+    h5 {
+      font-size: 14px;
+    }
+
+    h6 {
+      color: #777777;
+      font-size: 14px;
+    }
+
+    p, blockquote, ul, ol, dl, li, table, pre {
+      margin: 3px 0;
+    }
+
+    hr {
+      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
+      border: 0 none;
+      color: #cccccc;
+      height: 4px;
+      padding: 0;
+    }
+
+    body > h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h1:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h1:first-child + h2 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+      margin-top: 0;
+    }
+
+    li p.first {
+      display: inline-block;
+    }
+
+    ul, ol {
+      padding-left: 30px;
+    }
+
+    ul :first-child, ol :first-child {
+      margin-top: 0;
+    }
+
+    ul :last-child, ol :last-child {
+      margin-bottom: 0;
+    }
+
+    dl {
+      padding: 0;
+    }
+
+    dl dt {
+      font-size: 14px;
+      font-weight: bold;
+      font-style: italic;
+      padding: 0;
+      margin: 15px 0 5px;
+    }
+
+    dl dt:first-child {
+      padding: 0;
+    }
+
+    dl dt > :first-child {
+      margin-top: 0;
+    }
+
+    dl dt > :last-child {
+      margin-bottom: 0;
+    }
+
+    dl dd {
+      margin: 0 0 15px;
+      padding: 0 15px;
+    }
+
+    dl dd > :first-child {
+      margin-top: 0;
+    }
+
+    dl dd > :last-child {
+      margin-bottom: 0;
+    }
+
+    blockquote {
+      border-left: 4px solid #dddddd;
+      padding: 0 15px;
+      color: #777777;
+    }
+
+    blockquote > :first-child {
+      margin-top: 0;
+    }
+
+    blockquote > :last-child {
+      margin-bottom: 0;
+    }
+
+    table {
+      padding: 0;
+    }
+    table tr {
+      border-top: 1px solid #cccccc;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8;
+    }
+
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0;
+    }
+
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    span.frame {
+      display: block;
+      overflow: hidden;
+    }
+
+    span.frame > span {
+      border: 1px solid #dddddd;
+      display: block;
+      float: left;
+      overflow: hidden;
+      margin: 13px 0 0;
+      padding: 7px;
+      width: auto;
+    }
+
+    span.frame span img {
+      display: block;
+      float: left;
+    }
+
+    span.frame span span {
+      clear: both;
+      color: #333333;
+      display: block;
+      padding: 5px 0 0;
+    }
+
+    span.align-center {
+      display: block;
+      overflow: hidden;
+      clear: both;
+    }
+
+    span.align-center > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px auto 0;
+      text-align: center;
+    }
+
+    span.align-center span img {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    span.align-right {
+      display: block;
+      overflow: hidden;
+      clear: both;
+    }
+
+    span.align-right > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px 0 0;
+      text-align: right;
+    }
+
+    span.align-right span img {
+      margin: 0;
+      text-align: right;
+    }
+
+    span.float-left {
+      display: block;
+      margin-right: 13px;
+      overflow: hidden;
+      float: left;
+    }
+
+    span.float-left span {
+      margin: 13px 0 0;
+    }
+
+    span.float-right {
+      display: block;
+      margin-left: 13px;
+      overflow: hidden;
+      float: right;
+    }
+
+    span.float-right > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px auto 0;
+      text-align: right;
+    }
+
+    code, tt {
+      font-family: "Lucida Console", "Courier New", courier;
+      font-size: 12px;
+      margin: 0 2px;
+      padding: 3px 5px;
+      white-space: nowrap;
+      border: 1px solid #eaeaea;
+      background-color: #f8f8f8;
+      border-radius: 3px;
+    }
+
+    pre code {
+      margin: 0;
+      padding: 0;
+      white-space: pre;
+      border: none;
+      background: transparent;
+    }
+
+    .highlight pre {
+      background-color: #f8f8f8;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      line-height: 19px;
+      overflow: auto;
+      padding: 6px 10px;
+      border-radius: 3px;
+    }
+
+    pre {
+      background-color: #f8f8f8;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      line-height: 19px;
+      overflow: auto;
+      padding: 6px 10px;
+      border-radius: 3px;
+    }
+
+    pre code, pre tt {
+      background-color: transparent;
+      border: none;
+    }
+
+    span.line-numbers {
+      margin-right: 10px;
+    }
+
+    img.logo {
+      display: block;
+      margin: 10px auto;
+    }
+
+    h1.logo {
+      text-align: center;
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="containter">
+    
+    <h2 id="where-markabys-come-from">Where Markaby’s come from</h2>
+
+<p>A great musician, writer and programmer (and a bit crazy) named
+<a href="http://en.wikipedia.org/wiki/Why_the_lucky_stiff">_why</a> wrote camping.  Before
+banish himself to the dimension from where him come (a place named “the
+keyhole”); hi also wanted, that the developers, should have not write pure HTML
+code. Him dream with a world were the programmer write html in their
+programming language.</p>
+
+<p>Rails users are very hard guys. Their eat the soup using a fork and generate
+HTML views in a template engine named Erb. Their use a long set of weird tools
+for generate that Embedded Ruby (erb), their call it “scaffolding”. The basic
+idea is: “let me rails write html code for you” Many framework have in the
+README a line that say: “support more populars template engines” but normally
+peoples uses the default in the framework.</p>
+
+<p>“Mab” is the template engine used by default in camping. _why Wrote the first
+implementation named Markaby and then, judofyr and Jenna, power-up markaby
+writing a more compact version of it.</p>
+
+<p>While you are writing with mab, will see ruby code front you are eyes, but your
+mind, will be seen pure HTML without tags. We will be “metaprograming HTML
+code”. In order to show a Header-1 tag, we just call a method named h1 and send
+the content as parameter. It will make the dirty work writing all the tags just
+like this:</p>
+
+<pre><code>  h1 'This is a header one'
+</code></pre>
+
+<p>“Write HTML pragmatically” mean: -write html using not html tags.
+Markaby is a way for write Hyper Text Markup Language (HTML) using Ruby.
+That do not mean “html knowledge unneeded”</p>
+
+<p>But that is only the beginning, we can do more wild things.</p>
+
+<h2 id="writing-html-pragmatically">Writing HTML pragmatically</h2>
+
+<p>For example: if we want show a table for show users and their real
+names:</p>
+
+<pre><code>     # call me using render :users 
+     # from a get in the controllers
+     def users
+        table do
+        th 'User'
+        th 'Realname'
+           @users.each do |user,realname|
+              tr do
+                   td user
+                   td realname
+              end # tr
+           end # each
+        end # table
+     end # def
+</code></pre>
+
+<p>Take a look better <a href="https://github.com/camping/mab/blob/master/README.md">here</a></p>
+
+<h2 id="markaby-and-the-layout">Markaby and the layout</h2>
+
+<p>There is a special view named “layout”. The layout, is view that will be
+rendered each time any other view are rendered. In fact, the layout will take
+the other views for compose himself. The layout is rendered before anything.</p>
+
+<p>Each time you use the “render” sentence, you will be rendering the
+layout and the desired view. Because that, wee need some “special”
+tweaks in the layout. It must have a door with a poster that say:
+“other view will enter using this door”</p>
+
+<p>The layout will be rendered, and in some place you will put the other view.
+This will be done with the “yield” sentence. Put the yield sentence whenever
+you want rendering all the other views.</p>
+
+<p>This is very useful, for example: We wan to write a footer in ALL the
+pages that we are rendering. You can write the footer in every views
+definition, or just write the footer in the layout.</p>
+
+<p>Without a layout, if you render the table’s views. Camping will drop out the
+table just like that to the browser’s render. It will not draw any body or head
+tag. Writing body and head in every page could be a very bored task. But do not
+worry, the layout is here.</p>
+
+<p>Lets write our layout, with all the HTML shape and including a footer</p>
+
+<pre><code>        def layout
+        
+          html do 
+            head do
+              title 'My Blog'
+            end
+
+             body do
+              
+              div.wrapper! do
+                self &lt;&lt; yield
+             end
+              
+              p.footer! do
+                text 'Powered by Camping'
+             end
+            end
+          end
+
+        end # layout
+</code></pre>
+
+<p>Well, that was wild. Let’s see: First we have everything inside a block, the
+html’s block. At the next level, the first block is head, that is rendering
+something like:</p>
+
+<pre><code>        &lt;html&gt;
+           &lt;head&gt;
+              &lt;title&gt; My Blog &lt;/title&gt;
+           &lt;/head&gt;
+        &lt;/html&gt;
+</code></pre>
+
+<p>If you look at the HTML’s source of camping, you will see a VERY LOOOONG
+line with every the HTML code, better do not look it.</p>
+
+<p>Then, come the more weird thing. A div with a estrange sentence:</p>
+
+<pre><code>     self &lt;&lt; yield
+</code></pre>
+
+<p>That mean: -put just right here, the other view called.</p>
+
+<p>In that place, in the center of the div.wrapper, will be placed all our
+views called using render’s sentence.</p>
+
+<p>When you call: </p>
+
+<pre><code>        render :someview
+</code></pre>
+
+<p>Camping will rendering before, the layout view, and put all the content
+of “someview” inside div.wrapper! You shall not write a lot of tag like
+head or title.</p>
+
+<p>Finally, it will be rendering a “p” named footer. That will be the footer in
+all our pages.</p>
+
+<h2 id="tip">Tip</h2>
+
+<p>What would happen? If you do this in the layout:</p>
+
+<pre><code>            head do
+              title "#{@title}"
+            end
+</code></pre>
+
+<p>Hummm… You could “rewrite” the titles of each pages. In the
+controller, you just need to declare the variable @title, and that will
+be the title for that page.</p>
+
+<p>Remember: </p>
+
+<ul>
+  <li>Views take @variables from the controller</li>
+  <li>Layout is rendered before any called view.</li>
+  <li>Markaby is ruby code and it can be embedded</li>
+  <li>View’s modules use not <code>class</code> declarations</li>
+</ul>
+
+<p>In the table example, we used a hash named @users. But where did all that data come from? </p>
+
+<p>It came from the controller but where did the controller get it from.
+<a href="http://api.rubyonrails.org/classes/ActiveRecord/Base.html">06_more_about_models</a> (not completed).
+The M of the MVC, the layer who stores the whole bunch of persistent data.</p>
+
+  </div>
+</body>
+</html>

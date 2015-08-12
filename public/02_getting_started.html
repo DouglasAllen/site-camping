@@ -1,0 +1,921 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+  
+  <style>
+    body {
+      font-family: "Helvetica Neue", arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: white;
+      padding: 30px;
+      color: #333;
+      border: 1px solid #aaa;
+      max-width: 900px;
+      margin: 20px auto;
+    }
+
+    body > *:first-child {
+      margin-top: 0 !important;
+    }
+
+    body > *:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    a {
+      color: #4183C4;
+      text-decoration: none;
+    }
+
+    a.absent {
+      color: #cc0000;
+    }
+
+    a.anchor {
+      display: block;
+      padding-left: 30px;
+      margin-left: -30px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 20px 0 10px;
+      padding: 0;
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
+      cursor: text;
+      position: relative;
+    }
+
+    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+      text-decoration: none;
+    }
+
+    h1 tt, h1 code {
+      font-size: inherit;
+    }
+
+    h2 tt, h2 code {
+      font-size: inherit;
+    }
+
+    h3 tt, h3 code {
+      font-size: inherit;
+    }
+
+    h4 tt, h4 code {
+      font-size: inherit;
+    }
+
+    h5 tt, h5 code {
+      font-size: inherit;
+    }
+
+    h6 tt, h6 code {
+      font-size: inherit;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: black;
+    }
+
+    h2 {
+      font-size: 24px;
+      border-bottom: 1px solid #cccccc;
+      color: black;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    h4 {
+      font-size: 16px;
+    }
+
+    h5 {
+      font-size: 14px;
+    }
+
+    h6 {
+      color: #777777;
+      font-size: 14px;
+    }
+
+    p, blockquote, ul, ol, dl, li, table, pre {
+      margin: 3px 0;
+    }
+
+    hr {
+      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
+      border: 0 none;
+      color: #cccccc;
+      height: 4px;
+      padding: 0;
+    }
+
+    body > h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h1:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h1:first-child + h2 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+      margin-top: 0;
+    }
+
+    li p.first {
+      display: inline-block;
+    }
+
+    ul, ol {
+      padding-left: 30px;
+    }
+
+    ul :first-child, ol :first-child {
+      margin-top: 0;
+    }
+
+    ul :last-child, ol :last-child {
+      margin-bottom: 0;
+    }
+
+    dl {
+      padding: 0;
+    }
+
+    dl dt {
+      font-size: 14px;
+      font-weight: bold;
+      font-style: italic;
+      padding: 0;
+      margin: 15px 0 5px;
+    }
+
+    dl dt:first-child {
+      padding: 0;
+    }
+
+    dl dt > :first-child {
+      margin-top: 0;
+    }
+
+    dl dt > :last-child {
+      margin-bottom: 0;
+    }
+
+    dl dd {
+      margin: 0 0 15px;
+      padding: 0 15px;
+    }
+
+    dl dd > :first-child {
+      margin-top: 0;
+    }
+
+    dl dd > :last-child {
+      margin-bottom: 0;
+    }
+
+    blockquote {
+      border-left: 4px solid #dddddd;
+      padding: 0 15px;
+      color: #777777;
+    }
+
+    blockquote > :first-child {
+      margin-top: 0;
+    }
+
+    blockquote > :last-child {
+      margin-bottom: 0;
+    }
+
+    table {
+      padding: 0;
+    }
+    table tr {
+      border-top: 1px solid #cccccc;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8;
+    }
+
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0;
+    }
+
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    span.frame {
+      display: block;
+      overflow: hidden;
+    }
+
+    span.frame > span {
+      border: 1px solid #dddddd;
+      display: block;
+      float: left;
+      overflow: hidden;
+      margin: 13px 0 0;
+      padding: 7px;
+      width: auto;
+    }
+
+    span.frame span img {
+      display: block;
+      float: left;
+    }
+
+    span.frame span span {
+      clear: both;
+      color: #333333;
+      display: block;
+      padding: 5px 0 0;
+    }
+
+    span.align-center {
+      display: block;
+      overflow: hidden;
+      clear: both;
+    }
+
+    span.align-center > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px auto 0;
+      text-align: center;
+    }
+
+    span.align-center span img {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    span.align-right {
+      display: block;
+      overflow: hidden;
+      clear: both;
+    }
+
+    span.align-right > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px 0 0;
+      text-align: right;
+    }
+
+    span.align-right span img {
+      margin: 0;
+      text-align: right;
+    }
+
+    span.float-left {
+      display: block;
+      margin-right: 13px;
+      overflow: hidden;
+      float: left;
+    }
+
+    span.float-left span {
+      margin: 13px 0 0;
+    }
+
+    span.float-right {
+      display: block;
+      margin-left: 13px;
+      overflow: hidden;
+      float: right;
+    }
+
+    span.float-right > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px auto 0;
+      text-align: right;
+    }
+
+    code, tt {
+      font-family: "Lucida Console", "Courier New", courier;
+      font-size: 12px;
+      margin: 0 2px;
+      padding: 3px 5px;
+      white-space: nowrap;
+      border: 1px solid #eaeaea;
+      background-color: #f8f8f8;
+      border-radius: 3px;
+    }
+
+    pre code {
+      margin: 0;
+      padding: 0;
+      white-space: pre;
+      border: none;
+      background: transparent;
+    }
+
+    .highlight pre {
+      background-color: #f8f8f8;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      line-height: 19px;
+      overflow: auto;
+      padding: 6px 10px;
+      border-radius: 3px;
+    }
+
+    pre {
+      background-color: #f8f8f8;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      line-height: 19px;
+      overflow: auto;
+      padding: 6px 10px;
+      border-radius: 3px;
+    }
+
+    pre code, pre tt {
+      background-color: transparent;
+      border: none;
+    }
+
+    span.line-numbers {
+      margin-right: 10px;
+    }
+
+    img.logo {
+      display: block;
+      margin: 10px auto;
+    }
+
+    h1.logo {
+      text-align: center;
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="containter">
+    
+    <h1 id="getting-started">Getting Started</h1>
+
+<p>Start a new text file called nuts.rb. Here’s what you put inside:</p>
+
+<pre><code>Camping.goes :Nuts
+</code></pre>
+
+<p>Save it. Then, open a command prompt in the same directory. You’ll want to
+run:</p>
+
+<pre><code>$ camping nuts.rb
+</code></pre>
+
+<p>And you should get a message which reads:</p>
+
+<pre><code>** Camping running on 0.0.0.0:3301.
+</code></pre>
+
+<p>This means that right now The Camping Server is running on port 3301 on your
+machine. Open your browser and visit http://localhost:3301/.</p>
+
+<p>Your browser window should show:</p>
+
+<pre><code>Camping Problem!
+  
+/ Not found
+</code></pre>
+
+<p>No problem with that. The Camping Server is running, but it doesn’t know what
+to show. Let’s tell him.</p>
+
+<h2 id="hello-clock">Hello clock</h2>
+
+<p>So, you’ve got Camping installed and it’s running. Keep it running. You can
+edit files and The Camping Server will reload automatically. When you need to
+stop the server, press Control-C.</p>
+
+<p>Let’s show something. At the bottom of nuts.rb add:</p>
+
+<pre><code>module Nuts::Controllers
+  class Index &lt; R '/'
+    def get
+      Time.now.to_s
+    end
+  end
+end
+</code></pre>
+
+<p>Save the file and refresh the browser window. Your browser window should show
+the time, e.g.</p>
+
+<pre><code>Sun Jul 15 12:56:15 +0200 2007
+</code></pre>
+
+<h2 id="enjoying-the-view">Enjoying the view</h2>
+
+<p>The Camping microframework allows us to separate our code using the MVC
+(Model-View-Controller) design pattern. Let’s add a view to our Nuts
+application. Replace the <tt>module Nuts::Controllers</tt> with:</p>
+
+<pre><code>module Nuts::Controllers
+  class Index &lt; R '/'
+    def get
+      @time = Time.now
+      render :sundial
+    end
+  end
+end
+
+module Nuts::Views
+  def layout
+    html do
+      head do
+        title { "Nuts And GORP" }
+      end
+      body { self &lt;&lt; yield }
+    end
+  end
+
+  def sundial
+    p "The current time is: #{@time}"
+  end
+end
+</code></pre>
+
+<p>Save the file, refresh your browser window and it should show a message
+like:</p>
+
+<pre><code>The current time is: Sun Jul 15 13:05:41 +0200 2013
+</code></pre>
+
+<p>And the window title reads “Nuts And GORP”.</p>
+
+<p>Here you can see we call <tt>render :sundial</tt> from our controller. This
+does exactly what it says, and renders our <tt>sundial</tt> method. We’ve also
+added a special method called <tt>layout</tt> which Camping will automatically
+wrap our sundial output in. If you’re familiar with HTML, you’ll see that our
+view contains what looks HTML tag names. This is Markaby, which is like
+writing HTML using Ruby!</p>
+
+<p>Soon enough, you’ll find that you can return anything from the controller, and
+it will be sent to the browser. But let’s keep that for later and start
+investigating the routes.</p>
+
+<h2 id="routes">Routes</h2>
+
+<p>You probably noticed the weird <tt>R ‘/’</tt> syntax in the previous page.
+This is an uncommon feature of Ruby that is used in our favorite
+microframework, to describe the routes which the controller can be accessed
+on.</p>
+
+<p>These routes can be very powerful, but we’re going to have look at the
+simplest ones first.</p>
+
+<pre><code>module Nuts::Controllers
+  class Words &lt; R '/welcome/to/my/site'
+    def get
+      "You got here by: /welcome/to/my/site"
+    end
+  end
+
+  class Digits &lt; R '/nuts/(\d+)'
+    def get(number)
+      "You got here by: /nuts/#{number}"
+    end
+  end
+
+  class Segment &lt; R '/gorp/([^/]+)'
+    def get(everything_else_than_a_slash)
+      "You got here by: /gorp/#{everything_else_than_a_slash}"
+    end
+  end
+
+  class DigitsAndEverything &lt; R '/nuts/(\d+)/([^/]+)'
+    def get(number, everything)
+      "You got here by: /nuts/#{number}/#{everything}"
+    end
+  end
+end
+</code></pre>
+
+<p>Add this to <code>nuts.rb</code> and try if you can hit all of the controllers. </p>
+
+<p>Also notice how everything inside a parenthesis gets passed into the method,
+and is ready at your disposal.</p>
+
+<h3 id="simpler-routes">Simpler routes</h3>
+
+<p>This just in:</p>
+
+<pre><code>module Nuts::Controllers
+  class Index
+    def get
+      "You got here by: /"
+    end
+  end
+
+  class WelcomeToMySite
+    def get
+      "You got here by: /welcome/to/my/site"
+    end
+  end
+  
+  class NutsN
+    def get(number)
+      "You got here by: /nuts/#{number}"
+    end
+  end
+
+  class GorpX
+    def get(everything_else_than_a_slash)
+      "You got here by: /gorp/#{everything_else_than_a_slash}"
+    end
+  end
+
+  class NutsNX
+    def get(number, everything)
+      "You got here by: /nuts/#{number}/#{everything}"
+    end
+  end
+end
+</code></pre>
+
+<p>Drop the <tt>&lt; R</tt>-part and it attemps to read your mind. It won’t always
+succeed, but it can simplify your application once in a while.</p>
+
+<h2 id="modeling-the-world">Modeling the world</h2>
+
+<p>You can get pretty far with what you’ve learned now, and hopefully you’ve been
+playing a bit off-book, but it’s time to take the next step: Storing data.</p>
+
+<p>Let’s start over again.</p>
+
+<pre><code>Camping.goes :Nuts
+
+module Nuts::Models
+  class Page &lt; Base
+  end
+end
+</code></pre>
+
+<p>Obviously, this won’t do anything, since we don’t have any controllers, but
+let’s rather have a look at what we <em>do</em> have.</p>
+
+<p>We have a model named Page. This means we now can store wiki pages and
+retrieve them later. In fact, we can have as many models as we want. Need one
+for your users and one for your blog posts? Well, I think you already know how
+to do it.</p>
+
+<p>However, our model is missing something essential: a skeleton.</p>
+
+<pre><code>Camping.goes :Nuts
+  
+module Nuts::Models
+  class Page &lt; Base
+  end
+  
+  class BasicFields &lt; V 1.0
+    def self.up
+      create_table Page.table_name do |t|
+        t.string :title
+        t.text   :content
+        # This gives us created_at and updated_at
+        t.timestamps
+      end
+    end
+  
+    def self.down
+      drop_table Page.table_name
+    end
+  end
+end
+</code></pre>
+
+<p>Now we have our first version of our model. It says:</p>
+
+<p>If you want to migrate up to version one,
+    create the skeleton for the Page model,
+    which should be able to store,
+      “title” which is a string,
+      “content” which is a larger text,
+      “created_at” which is the time it was created,
+      “updated_at” which is the previous time it was updated.</p>
+
+<p>If you want to migrate down from version one,
+    remove the skeleton for the Page model.</p>
+
+<p>This is called a
+<a href="http://api.rubyonrails.org/classes/ActiveRecord/Migration.html">migration</a>.
+Whenever you want to change or add new models you simply add a new migration
+below, where you increase the version number. All of these migrations builds
+upon each other like LEGO blocks. Each new Migrations must have different
+class’s names, is a good idea name migration’s explicit. For exmaple: </p>
+
+<pre><code>  class AddTagColumn &lt; V 1.1
+    def self.change
+     add_column Page.table_name, :tag, :string
+     Page.reset_column_information
+    end
+  end
+</code></pre>
+
+<p>Now we just need to tell Camping to use our migration. Write this at the bottom of nuts.rb</p>
+
+<pre><code>def Nuts.create
+  Nuts::Models.create_schema
+end
+</code></pre>
+
+<p>When The Camping Server boots up, it will automatically call
+<tt>Nuts.create</tt>. You can put all kind of startup-code here, but right now
+we only want to create our skeleton (or upgrade if needed). Start The Camping
+Server again and observe:</p>
+
+<pre><code>$ camping nuts.rb
+** Starting Mongrel on 0.0.0.0:3301
+-- create_table("nuts_schema_infos")
+   -&gt; 0.1035s
+==  Nuts::Models::BasicFields: migrating ===================================
+-- create_table(:nuts_pages)
+   -&gt; 0.0033s
+==  Nuts::Models::BasicFields: migrated (0.0038s) ==========================
+</code></pre>
+
+<p>Restart it, and enjoy the silence. There’s no point of re-creating the
+skeleton this time.</p>
+
+<p>Before we go on, there’s one rule you must known: Always place your models
+before your migrations.</p>
+
+<h2 id="using-our-model">Using our model</h2>
+
+<p>Let’s explore how our model works by going into the <em>console</em>. The console
+is good way to familiarize with your models. Test your models adding some
+data by bare hand before addin it to the application.</p>
+
+<pre><code>$ camping -C nuts.rb
+** Starting console
+&gt;&gt;
+</code></pre>
+
+<p>Now it’s waiting for your input, and will give you the answer when you press
+Enter. Here’s what I did, leaving out the boring answers. You should add your
+own pages.</p>
+
+<pre><code>&gt;&gt; Page = Nuts::Models::Page
+
+&gt;&gt; hiking = Page.new(:title =&gt; "Hiking")
+&gt;&gt; hiking.content = "You can also set the values like this."
+&gt;&gt; hiking.save
+
+&gt;&gt; page = Page.find_by_title("Hiking")
+=&gt; #&lt;Nuts::Models::Page id: 1, ... &gt;
+&gt;&gt; page = Page.find(1)
+=&gt; #&lt;Nuts::Models::Page id: 1, ... &gt;
+&gt;&gt; page.title
+&gt;&gt; page.content
+&gt;&gt; page.created_at
+&gt;&gt; page.updated_at
+
+&gt;&gt; Page.find_by_title("Fishing")
+=&gt; nil
+
+## Page.create automatically saves the page for you.
+&gt;&gt; Page.create(:title =&gt; "Fishing", :content =&gt; "Go fish!")
+
+&gt;&gt; Page.count
+=&gt; 2
+</code></pre>
+
+<p>Now I have two pages: One about hiking and one about fishing.</p>
+
+<h2 id="wrapping-it-up">Wrapping it up</h2>
+
+<p>Wouldn’t it be nice if we could show this wonderful our pages in a browser?
+Update nuts.rb so it also contains something like this:</p>
+
+<pre><code>module Nuts::Controllers
+  class Pages
+    def get
+      # Only fetch the titles of the pages.
+      @pages = Page.all(:select =&gt; "title")
+      render :list
+    end
+  end
+  
+  class PageX
+    def get(title)
+      @page = Page.find_by_title(title)
+      render :view
+    end
+  end
+end
+
+module Nuts::Views
+  def list
+    h1 "All pages"
+    ul do
+      @pages.each do |page|
+        li do
+          a page.title, :href =&gt; R(PageX, page.title)
+        end
+      end
+    end
+  end
+
+  def view
+    h1 @page.title
+    self &lt;&lt; @page.content
+  end
+end
+</code></pre>
+
+<p>Here we meet our first <em>helper</em>:</p>
+
+<pre><code>R(PageX, page.title)
+</code></pre>
+
+<p>This is the <em>reversed router</em> and it generates a URL based on a
+controller. R takes the controller you want to link to, followed by the router
+parameters.  . Instead of typing:</p>
+
+<pre><code>:href=&gt;'/welcome/to/my/site'
+</code></pre>
+
+<p>You can let Camping do the hard work for you.</p>
+
+<pre><code>:href=&gt;R(Words)
+</code></pre>
+
+<p>If the route would have some parameter, you shall write like this:</p>
+
+<p>:href=&gt;R(WordsX,’someword’)</p>
+
+<p>Camping ships with a few, but very useful, helpers, and you can easily add your
+owns. Have a look at Camping::Helpers for how you use these.</p>
+
+<p>There’s a lot of improvements you could do here. Let me suggest:</p>
+
+<ul>
+  <li>Show when the page was created and last updated.</li>
+  <li>What happens when the page doesn’t exist?</li>
+  <li>What should the front page show?</li>
+  <li>Allow or disallow authenticated users.</li>
+  <li>Add a layout.</li>
+  <li>Jazz it up a bit.</li>
+</ul>
+
+<p>Helpers can work generating Markaby’s code. You could write a helper for show
+some kind of data and call it from your views (Add a layout).</p>
+
+<h2 id="the-last-touch">The last touch</h2>
+
+<p>We have one major flaw in our little application. You can’t edit or add new
+pages. Let’s see if we can fix that:</p>
+
+<pre><code>module Nuts::Controllers
+  class PageX
+    def get(title)
+      if @page = Page.find_by_title(title)
+        render :view
+      else
+        redirect PageXEdit, title
+      end
+    end
+    
+    def post(title)
+      # If it doesn't exist, initialize it:
+      @page = Page.find_or_initialize_by_title(title)
+      # This is the same as:
+      # @page = Page.find_by_title(title) || Page.new(:title =&gt; title)
+      
+      @page.content = @input.content
+      @page.save
+      redirect PageX, title
+    end
+  end
+  
+  class PageXEdit
+    def get(title)
+      @page = Page.find_or_initialize_by_title(title)
+      render :edit
+    end
+  end
+end
+</code></pre>
+
+<p>The core of this code lies in the new <tt>post</tt> method in the PageX
+controller. When someone types an address or follows a link, they’ll end up at
+the <tt>get</tt> method, but you can easily create a form which rather sends
+you to the <tt>post</tt> when submitted.</p>
+
+<p>There are other names you can use, but they won’t always work. So for now,
+don’t be fancy and just stick to <tt>get</tt> and <tt>post</tt>. We’ll show
+you how this really works later.</p>
+
+<p>You might also notice that we use <tt>@input.content</tt>. The
+<tt>@input</tt>-hash contains any extra parameters sent, like those in the
+forms and those in the URL (<tt>/posts?page=50</tt>).</p>
+
+<p>Here’s an <tt>edit</tt>-view, but you can probably do better. See if you can
+integrate all of this with what you already have.</p>
+
+<pre><code>module Nuts::Views
+  def edit
+    h1 @page.title
+    form :action =&gt; R(PageX, @page.title), :method =&gt; :post do
+      textarea @page.content, :name =&gt; :content,
+        :rows =&gt; 10, :cols =&gt; 50
+
+      br
+      
+      input :type =&gt; :submit, :value =&gt; "Submit!"
+    end
+  end
+end
+</code></pre>
+
+<h2 id="phew">Phew.</h2>
+
+<p>You’ve taken quite a few steps in the last minutes. You deserve a break. But
+let’s recap for a moment:</p>
+
+<ul>
+  <li>Always place <tt>Camping.goes :App</tt> at the top of your file.</li>
+  <li>Every route ends at a controller, but …</li>
+  <li>… the controller only delegates the work.</li>
+  <li><tt>@input</tt> contains the extra parameters.</li>
+  <li>The views are HTML disguised as Ruby.</li>
+  <li>They can access the instances variables (those that starts with a single
+at-sign) from the controller.</li>
+  <li>The models allows you to store all kinds of data.</li>
+  <li>Place your models before your migrations.</li>
+  <li>Helpers are helpful.</li>
+</ul>
+
+<p>If you wanna dive deep, stay reading for a <a href="03_more_about_controllers.html">more extended tutorial</a> step by step…</p>
+
+<p>Enjoy the code</p>
+<p>In the mean time you may try out the examples like this:</br>
+
+camping examples/blog.rb          # Mounts Blog at /</p>
+  </div>
+</body>
+</html>
